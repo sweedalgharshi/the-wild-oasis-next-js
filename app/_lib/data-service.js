@@ -1,5 +1,6 @@
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
+import { notFound } from "next/navigation";
 
 export async function getCountries() {
   try {
@@ -39,6 +40,7 @@ export async function getCabin(id) {
   if (error) {
     console.log(error);
     // throw new Error("Cabin could not be loaded");
+    notFound();
   }
 
   return data;
